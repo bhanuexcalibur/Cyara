@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyara &times; Bhanu Kumar &middot; Agentic AI Assurance Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root {
+  --navy-deep:    #051124;
+  --navy-header:  #071a90;
+  --navy-surface: #0b1f48;
+  --navy-card:    #0f2656;
+  --navy-border:  rgba(110, 148, 255, 0.16);
+  --cyan-accent:  #27dbe1;
+  --cyan-glow:    rgba(39, 219, 225, 0.22);
+  --cyan-soft:    #e6fafb;
+  --blue-brand:   #386eb0;
+  --blue-light:   #6e94ff;
+  --bg-slate:     #f8fafc;
+  --surface-white:#ffffff;
+  --surface-card: #ffffff;
+  --border-light: #e2e8f0;
+  --border-strong:#cbd5e1;
+  --text-dark:    #0b1d2b;
+  --text-muted:   #475569;
+  --text-soft:    #64748b;
+  --text-white:   #f8fafc;
+  --text-dim:     #94a3b8;
+  --pass-green:   #10b981;
+  --pass-bg:      rgba(16, 185, 129, 0.12);
+  --warn-orange:  #f59e0b;
+  --warn-bg:      rgba(245, 158, 11, 0.12);
+  --fail-red:     #ef4444;
+  --fail-bg:      rgba(239, 68, 68, 0.12);
+  --font-sans:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-heading: 'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: var(--bg-slate);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan-accent), var(--blue-light));
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(7, 26, 144, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(82, 119, 239, 0.35);
+  padding: 0 5vw;
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-badge {
+  background: #ffffff;
+  color: var(--navy-header);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 15px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: -0.02em;
+}
+
+.brand-title {
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brand-sep {
+  color: var(--cyan-accent);
+  margin: 0 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  font-size: 13px;
+  font-weight: 500;
+  color: #cad8ff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.18s ease;
+}
+
+.nav-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.pill-resume {
+  background: rgba(39, 219, 225, 0.16);
+  color: var(--cyan-accent);
+  border: 1px solid rgba(39, 219, 225, 0.4);
+}
+
+.pill-resume:hover {
+  background: var(--cyan-accent);
+  color: var(--navy-deep);
+}
+
+.pill-linkedin {
+  background: #ffffff;
+  color: var(--navy-header);
+}
+
+.pill-linkedin:hover {
+  background: #e2e8f0;
+}
+
+.pill-email {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pill-email:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Mobile Nav Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  margin: 5px 0;
+  transition: 0.25s;
+}
+
+/* HERO: Two-Column Split (Archetype 2) */
+.hero-section {
+  background: linear-gradient(175deg, #071a90 0%, #051124 100%);
+  color: #ffffff;
+  padding: 38px 5vw 48px;
+  border-bottom: 1px solid rgba(82, 119, 239, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 30%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(39, 219, 225, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left Hero: Strategic Thesis */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(39, 219, 225, 0.12);
+  border: 1px solid rgba(39, 219, 225, 0.35);
+  color: var(--cyan-accent);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  width: fit-content;
+  letter-spacing: 0.02em;
+}
+
+.hero-eyebrow .pulse-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--cyan-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cyan-accent);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.65); opacity: 0.45; }
+}
+
+.hero-h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 2.7vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.hero-h1 .cyan-gradient {
+  background: linear-gradient(110deg, #ffffff 20%, var(--cyan-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-lead {
+  font-size: 15px;
+  line-height: 1.58;
+  color: #cadaff;
+  margin-bottom: 18px;
+  max-width: 520px;
+}
+
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-tag {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--cyan-accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.stat-desc {
+  font-size: 13.5px;
+  color: #cad8ff;
+  line-height: 1.4;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cyan-accent);
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(39, 219, 225, 0.3);
+}
+
+.cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(39, 219, 225, 0.45);
+}
+
+/* Right Hero: Interactive Agentic Simulator */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.simulator-box {
+  background: var(--navy-surface);
+  border: 1px solid var(--navy-border);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  position: relative;
+}
+
+.sim-header {
+  background: rgba(5, 17, 36, 0.7);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.sim-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.sim-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--pass-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.sim-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.sim-pill-btn {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--navy-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: #cadaff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sim-pill-btn.active {
+  background: var(--cyan-accent);
+  color: var(--navy-deep);
+  border-color: var(--cyan-accent);
+}
+
+.sim-body {
+  padding: 20px;
+}
+
+.sim-agent-card {
+  background: rgba(7, 26, 144, 0.35);
+  border: 1px solid var(--navy-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.sim-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sim-agent-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-agent-badge {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: rgba(39, 219, 225, 0.15);
+  color: var(--cyan-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.sim-prompt-block {
+  font-size: 13.5px;
+  color: #cadaff;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 10px 12px;
+  border-radius: 6px;
+  border-left: 3px solid var(--cyan-accent);
+  line-height: 1.5;
+}
+
+/* Adversarial Verification Suite */
+.assurance-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 38, 86, 0.6);
+  border: 1px solid var(--navy-border);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.check-item.active-scan {
+  border-color: var(--cyan-accent);
+  background: rgba(39, 219, 225, 0.08);
+  transform: translateX(4px);
+}
+
+.check-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-name {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.check-sub {
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+.check-status {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.status-pass {
+  background: var(--pass-bg);
+  color: #34d399;
+}
+
+.status-flagged {
+  background: var(--fail-bg);
+  color: #f87171;
+}
+
+.status-checking {
+  background: var(--warn-bg);
+  color: #fbbf24;
+}
+
+.sim-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--navy-border);
+}
+
+.sim-telemetry {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: #94a3b8;
+}
+
+.sim-telemetry strong {
+  color: var(--cyan-accent);
+}
+
+.sim-run-btn {
+  background: linear-gradient(135deg, #27dbe1, #386eb0);
+  border: none;
+  color: #051124;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sim-run-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* GLOBAL LAYOUT WRAPPER */
+.section-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 68px 5vw;
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--navy-header);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(21px, 2.1vw, 27px);
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* 1. EXECUTIVE DIAGNOSTIC: 3 CARDS */
+.diagnostic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.diag-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.diag-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 26, 144, 0.06);
+}
+
+.diag-top {
+  margin-bottom: 20px;
+}
+
+.diag-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.badge-red {
+  background: var(--fail-bg);
+  color: #dc2626;
+}
+
+.badge-amber {
+  background: var(--warn-bg);
+  color: #d97706;
+}
+
+.badge-blue {
+  background: rgba(7, 26, 144, 0.08);
+  color: var(--navy-header);
+}
+
+.diag-h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.diag-body {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.diag-stat-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.diag-stat-tag {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy-header);
+}
+
+.diag-stat-lbl {
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 500;
+}
+
+/* 2. STRATEGIC POSITIONING MATRIX (2X2) */
+.matrix-section {
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.matrix-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.matrix-visual {
+  background: #f8fafc;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+}
+
+.axis-y-label {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy-header);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.axis-x-label {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy-header);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quadrant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 380px;
+  margin: 20px 0;
+}
+
+.quad-box {
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.quad-box:hover, .quad-box.active {
+  border-color: var(--navy-header);
+  box-shadow: 0 4px 14px rgba(7, 26, 144, 0.08);
+}
+
+.quad-box.winner {
+  background: rgba(7, 26, 144, 0.03);
+  border: 2px solid var(--navy-header);
+  box-shadow: 0 6px 20px rgba(7, 26, 144, 0.1);
+}
+
+.quad-winner-tag {
+  background: var(--navy-header);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.quad-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.quad-players {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.quad-verdict {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.matrix-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.takeaway-card {
+  background: #f8fafc;
+  border-left: 4px solid var(--navy-header);
+  padding: 18px 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.takeaway-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-header);
+  margin-bottom: 6px;
+}
+
+.takeaway-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* 3. MESSAGING DIFF: BEFORE VS AFTER */
+.diff-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.diff-card {
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.diff-card.legacy {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.diff-card.rewritten {
+  background: #f0fdf4;
+  border: 2px solid #86efac;
+}
+
+.diff-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.tag-legacy {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.tag-rewritten {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.diff-quote {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.diff-quote.legacy-text {
+  color: #7f1d1d;
+  text-decoration: line-through;
+  text-decoration-color: #ef4444;
+}
+
+.diff-quote.rewritten-text {
+  color: #14532d;
+}
+
+.diff-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.diff-bullets li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.diff-bullets li strong {
+  color: var(--text-dark);
+}
+
+/* 4. COMPETITIVE BATTLECARD ENGINE */
+.battle-section {
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.battle-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.battle-tab {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.battle-tab.active {
+  background: var(--navy-header);
+  color: #ffffff;
+  border-color: var(--navy-header);
+}
+
+.battle-panel {
+  display: none;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.battle-panel.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.battle-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.battle-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.head-win {
+  color: #047857;
+}
+
+.head-concede {
+  color: #b45309;
+}
+
+.battle-body {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.battle-action-box {
+  grid-column: 1 / -1;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.action-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-header);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.action-text {
+  font-size: 14.5px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* 5. FIRST 90 DAYS GTM BLUEPRINT */
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.road-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--navy-header);
+}
+
+.road-period {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-header);
+  margin-bottom: 8px;
+}
+
+.road-h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.road-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+
+.road-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.road-list li::before {
+  content: '>';
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--navy-header);
+}
+
+.road-deliverable {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light);
+  font-size: 13px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* 6. MEASUREMENT FRAMEWORK (NEW DEDICATED SECTION) */
+.measurement-wrap {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.measurement-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.measurement-subtitle {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.measurement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.measure-col {
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 20px 18px;
+}
+
+.measure-head {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy-header);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.measure-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.measure-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.measure-list li::before {
+  content: '•';
+  color: var(--cyan-accent);
+  font-weight: bold;
+}
+
+/* 7. CURATED OTHER RELEVANT WORK */
+.work-section {
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.work-card {
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f8fafc;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.work-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--navy-header);
+  box-shadow: 0 8px 20px rgba(7, 26, 144, 0.08);
+}
+
+.work-co {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-header);
+  margin-bottom: 6px;
+}
+
+.work-problem {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.work-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-header);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* FOOTER & AUTHOR TRINITY */
+.footer-section {
+  background: var(--navy-deep);
+  color: #ffffff;
+  padding: 60px 5vw;
+  border-top: 1px solid rgba(82, 119, 239, 0.25);
+}
+
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.footer-name {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-role {
+  font-size: 15px;
+  color: #cadaff;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 12px;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .matrix-container {
+    grid-template-columns: 1fr;
+  }
+  .diagnostic-grid, .roadmap-grid, .work-grid {
+    grid-template-columns: 1fr;
+  }
+  .measurement-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .diff-container {
+    grid-template-columns: 1fr;
+  }
+  .battle-panel.active {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .measurement-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-brand">
+      <span class="brand-badge">CYARA</span>
+      <span class="brand-title">Agentic AI Assurance <span class="brand-sep">&middot;</span> Bhanu Kumar</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#diagnostic" class="nav-btn">Diagnostic</a>
+      <a href="#matrix" class="nav-btn">Positioning</a>
+      <a href="#messaging" class="nav-btn">Narrative</a>
+      <a href="#battlecards" class="nav-btn">Battlecards</a>
+      <a href="#roadmap" class="nav-btn">90-Day GTM</a>
+      <a href="#measurement" class="nav-btn">Measurement</a>
+      <a href="https://drive.google.com/file/d/1a_WRIHF7RawD7rXkwYs3DNuPQf7zq_lf/view?usp=sharing" target="_blank" class="contact-pill pill-resume">Resume</a>
+      <a href="https://www.linkedin.com/in/bhanuexcalibur/" target="_blank" class="contact-pill pill-linkedin">LinkedIn</a>
+      <a href="mailto:bhanukumar0902@gmail.com" class="contact-pill pill-email">Email</a>
+    </div>
+
+    <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO SECTION: TWO-COLUMN SPLIT (Archetype 2) -->
+<header class="hero-section">
+  <div class="hero-grid">
+    
+    <!-- Left Hero: Executive Thesis -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="pulse-dot"></span>
+        STRATEGIC PROOF OF WORK &middot; EMEA & GLOBAL PMM
+      </div>
+
+      <h1 class="hero-h1">
+        AI agents do not fail quietly.<br>
+        <span class="cyan-gradient">At enterprise scale, one bad decision can become thousands of bad customer interactions.</span>
+      </h1>
+
+      <p class="hero-lead">
+        As enterprises transition from scripted IVR trees to autonomous agentic CX, leadership faces a defining commercial challenge: <strong>how to make enterprise AI investments defensible</strong> before unverified interactions reach live production.
+      </p>
+
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <span class="stat-tag">PILOT FRICTION</span>
+          <span class="stat-desc">Most AI pilots stall before reaching live customer routing</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-tag">ASSURANCE GAP</span>
+          <span class="stat-desc">Many enterprises lack mature assurance frameworks for production AI</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-tag">SCALE OF RISK</span>
+          <span class="stat-desc">Non-deterministic failures propagate across concurrent paths instantly</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#matrix" class="cta-primary">Explore Category Positioning</a>
+        <a href="https://drive.google.com/file/d/1a_WRIHF7RawD7rXkwYs3DNuPQf7zq_lf/view?usp=sharing" target="_blank" class="contact-pill pill-resume">View Resume</a>
+        <a href="https://www.linkedin.com/in/bhanuexcalibur/" target="_blank" class="contact-pill pill-linkedin">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- Right Hero: Live Interactive Simulator -->
+    <div class="hero-right">
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-label">
+            <span class="sim-indicator"></span>
+            AI AGENTIC ASSURANCE ENGINE
+          </div>
+          <div class="sim-pills">
+            <button class="sim-pill-btn active" onclick="selectScenario(0)">Banking Wire</button>
+            <button class="sim-pill-btn" onclick="selectScenario(1)">Health Claim</button>
+            <button class="sim-pill-btn" onclick="selectScenario(2)">Airline Rebook</button>
+          </div>
+        </div>
+
+        <div class="sim-body">
+          <div class="sim-agent-card">
+            <div class="sim-meta-row">
+              <div class="sim-agent-name" id="agentName">FinServ Tier-1 Wire Bot</div>
+              <div class="sim-agent-badge" id="agentFramework">LLM Agent + CCaaS Core</div>
+            </div>
+            <div class="sim-prompt-block" id="agentPrompt">
+              "Customer requests international wire limit override without secondary OTP verification."
+            </div>
+          </div>
+
+          <div class="assurance-pipeline" id="pipelineContainer">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <div class="sim-action-bar">
+            <div class="sim-telemetry">
+              Telemetry: <strong id="simScore">ASSURANCE CHECK COMPLETE</strong> &middot; <strong id="simLatency">TEST READY</strong>
+            </div>
+            <button class="sim-run-btn" id="runTestBtn" onclick="runSimulation()">
+              Run Adversarial Test
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- SECTION 1: EXECUTIVE DIAGNOSTIC -->
+<section class="section-wrap" id="diagnostic">
+  <div class="section-header">
+    <span class="section-kicker">01 / Commercial Diagnosis</span>
+    <h2 class="section-h2">The Three Friction Points Stalling Enterprise AI Agent Rollouts</h2>
+    <p class="section-sub">Why enterprise contact center leaders freeze deployments despite aggressive executive mandates.</p>
+  </div>
+
+  <div class="diagnostic-grid">
+    <div class="diag-card">
+      <div class="diag-top">
+        <span class="diag-badge badge-red">BLAST RADIUS</span>
+        <h3 class="diag-h3">Failures Scale Instantly</h3>
+        <p class="diag-body">
+          A single hallucinated answer propagates to <strong>thousands of concurrent customer interactions</strong> across phone, SMS, and web simultaneously.
+        </p>
+      </div>
+      <div class="diag-stat-footer">
+        <span class="diag-stat-tag">EXPOSURE VELOCITY</span>
+        <span class="diag-stat-lbl">Instant multi-channel propagation</span>
+      </div>
+    </div>
+
+    <div class="diag-card">
+      <div class="diag-top">
+        <span class="diag-badge badge-amber">DEPLOYMENT STALL</span>
+        <h3 class="diag-h3">Pilot Purgatory</h3>
+        <p class="diag-body">
+          Many enterprise AI pilots struggle to move from <strong>controlled testing to production routing</strong> without verifiable behavioral proof.
+        </p>
+      </div>
+      <div class="diag-stat-footer">
+        <span class="diag-stat-tag">COMMERCIAL IMPACT</span>
+        <span class="diag-stat-lbl">Delayed time-to-value</span>
+      </div>
+    </div>
+
+    <div class="diag-card">
+      <div class="diag-top">
+        <span class="diag-badge badge-blue">GOVERNANCE CONTROLS</span>
+        <h3 class="diag-h3">Regulatory Exposure</h3>
+        <p class="diag-body">
+          Enterprises need defensible evidence that AI systems behave within <strong>defined operational controls before and after deployment</strong>.
+        </p>
+      </div>
+      <div class="diag-stat-footer">
+        <span class="diag-stat-tag">AUDIT STANDARD</span>
+        <span class="diag-stat-lbl">Defensible behavioral evidence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: 2X2 STRATEGIC POSITIONING MATRIX -->
+<section class="section-wrap matrix-section" id="matrix">
+  <div class="section-header">
+    <span class="section-kicker">02 / Market Quadrant</span>
+    <h2 class="section-h2">The Confidence Wedge: Telephony Depth Meets Non-Deterministic AI</h2>
+    <p class="section-sub">Where Cyara can establish a differentiated category position between raw LLM eval tools and CCaaS silos.</p>
+  </div>
+
+  <div class="matrix-container">
+    <div class="matrix-visual">
+      <div class="axis-y-label">&uarr; Non-Deterministic AI Trust (FactCheck, Misuse, Bias)</div>
+      <div class="axis-x-label">Full CCaaS & Voice Telephony Reality &rarr;</div>
+
+      <div class="quadrant-grid">
+        <div class="quad-box" onclick="selectQuad(0)">
+          <div>
+            <div class="quad-title">Pure-Play AI Eval</div>
+            <div class="quad-players">Promptfoo, Braintrust, Cekura</div>
+          </div>
+          <div class="quad-verdict" style="color: #d97706;">API-only: Disconnected from PSTN voice latency and carrier packet loss.</div>
+        </div>
+
+        <div class="quad-box winner" onclick="selectQuad(1)">
+          <div>
+            <span class="quad-winner-tag">CYARA CATEGORY WEDGE</span>
+            <div class="quad-title" style="color: var(--navy-header);">Cyara Agentic Platform</div>
+            <div class="quad-players">Autonomous Testing + Real Telephony + CCaaS Core</div>
+          </div>
+          <div class="quad-verdict" style="color: #047857;">Cyara's differentiated position: AI assurance across real-world CX and telephony environments.</div>
+        </div>
+
+        <div class="quad-box" onclick="selectQuad(2)">
+          <div>
+            <div class="quad-title">Legacy IVR Testing</div>
+            <div class="quad-players">Hammer (Infovista), Nectar</div>
+          </div>
+          <div class="quad-verdict" style="color: #dc2626;">Built for DTMF trees: Unsuited for dynamic non-deterministic LLMs.</div>
+        </div>
+
+        <div class="quad-box" onclick="selectQuad(3)">
+          <div>
+            <div class="quad-title">CCaaS-Native Silos</div>
+            <div class="quad-players">Genesys Native, NICE Enlighten</div>
+          </div>
+          <div class="quad-verdict" style="color: #d97706;">Vendor locked: Ineffective across multi-vendor hybrid CX stacks.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix-analysis">
+      <div class="takeaway-card">
+        <div class="takeaway-title">The Commercial Wedge for Sellers</div>
+        <div class="takeaway-text">
+          Sellers should avoid pitching general "testing tools." Position how <strong>Cyara gives enterprises a stronger evidence layer for AI assurance and governance</strong> across executive sponsors and risk committees.
+        </div>
+      </div>
+
+      <div class="takeaway-card" style="border-left-color: var(--pass-green);">
+        <div class="takeaway-title">Why AI Evaluation Alone Does Not Equal CX Assurance</div>
+        <div class="takeaway-text">
+          Prompt-level evaluation tools test raw LLM responses in CI/CD. <strong>They aren't designed to evaluate the full telephony and contact-center journey</strong>: lacking real-world audio quality validation, carrier network resilience testing, or live CCaaS agent handoffs.
+        </div>
+      </div>
+
+      <div class="takeaway-card" style="border-left-color: var(--cyan-accent);">
+        <div class="takeaway-title">Vendor Neutrality as an Enterprise Advantage</div>
+        <div class="takeaway-text">
+          Enterprises run multi-vendor stacks: AWS Connect for voice, Salesforce Agentforce for CRM, and custom LLM microservices. Cyara provides <strong>one independent assurance standard</strong> across all channels.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: REWRITTEN MESSAGING NARRATIVE -->
+<section class="section-wrap" id="messaging">
+  <div class="section-header">
+    <span class="section-kicker">03 / Messaging Transformation</span>
+    <h2 class="section-h2">From Operational QA Tooling to Strategic AI Defensibility</h2>
+    <p class="section-sub">Upgrading Cyara's commercial positioning from tactical test automation to enterprise risk mitigation.</p>
+  </div>
+
+  <div class="diff-container">
+    <div class="diff-card legacy">
+      <span class="diff-tag tag-legacy">BEFORE: OPERATIONAL QA PITCH</span>
+      <div class="diff-quote legacy-text">
+        "Automated CX testing and monitoring for contact centers, IVRs, and conversational chatbots."
+      </div>
+      <ul class="diff-bullets">
+        <li>&times; <strong>Buyer perception:</strong> Viewed as a technical testing utility.</li>
+        <li>&times; <strong>Budget access:</strong> Confined to tactical IT and telecom testing budgets.</li>
+        <li>&times; <strong>Competitive risk:</strong> Vulnerable to lower-cost developer testing scripts.</li>
+      </ul>
+    </div>
+
+    <div class="diff-card rewritten">
+      <span class="diff-tag tag-rewritten">AFTER: REWRITTEN STRATEGIC PMM NARRATIVE</span>
+      <div class="diff-quote rewritten-text">
+        "The Confidence Layer that makes enterprise AI defensible: testing AI agents with AI agents before failures reach customers."
+      </div>
+      <ul class="diff-bullets">
+        <li>&check; <strong>Buyer perception:</strong> Crucial confidence layer for enterprise AI rollout.</li>
+        <li>&check; <strong>Budget access:</strong> Creates a stronger path into AI governance, risk, and transformation conversations.</li>
+        <li>&check; <strong>Competitive moat:</strong> End-to-end voice and LLM trust across global carrier networks.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: COMPETITIVE BATTLECARD ENGINE -->
+<section class="section-wrap battle-section" id="battlecards">
+  <div class="section-header">
+    <span class="section-kicker">04 / Competitive Playbook</span>
+    <h2 class="section-h2">Straight Answers for Sellers: Where Cyara Wins and Where We Concede</h2>
+    <p class="section-sub">Equipping enterprise account executives with definitive objection reframing.</p>
+  </div>
+
+  <div class="battle-nav">
+    <button class="battle-tab active" onclick="selectBattle(0)">vs Pure-Play LLM Eval (Promptfoo / Braintrust)</button>
+    <button class="battle-tab" onclick="selectBattle(1)">vs CCaaS-Native Testing (Genesys / NICE)</button>
+    <button class="battle-tab" onclick="selectBattle(2)">vs Manual QA & Post-Call Sampling</button>
+  </div>
+
+  <!-- Panel 1: Pure-Play LLM Eval -->
+  <div class="battle-panel active" id="battlePanel0">
+    <div class="battle-box">
+      <div class="battle-head head-win">&check; WHERE WE WIN (THE CORE MOAT)</div>
+      <div class="battle-body">
+        <strong>PSTN voice reality and telephony handoff.</strong> Pure-play eval tools test text prompts in Python environments. They cannot dial telephone numbers, test speech-to-text degradation under background noise, validate carrier audio quality, or confirm live transfer to human CCaaS queues.
+      </div>
+    </div>
+    <div class="battle-box">
+      <div class="battle-head head-concede">&minus; WHERE WE CONCEDE (DO NOT FIGHT)</div>
+      <div class="battle-body">
+        <strong>Individual developers testing internal chat prototypes in GitHub.</strong> For raw developer prompt-engineering experiments, open-source CLI tools are faster and cheaper. We concede individual dev playground seats to focus on production enterprise risk.
+      </div>
+    </div>
+    <div class="battle-action-box">
+      <div class="action-title">The Seller Reframe</div>
+      <div class="action-text">"Promptfoo tests your prompt syntax in GitHub. Cyara tests whether your live customer hears the right answer over a degraded mobile cell tower."</div>
+    </div>
+  </div>
+
+  <!-- Panel 2: CCaaS-Native -->
+  <div class="battle-panel" id="battlePanel1">
+    <div class="battle-box">
+      <div class="battle-head head-win">&check; WHERE WE WIN (THE CORE MOAT)</div>
+      <div class="battle-body">
+        <strong>Multi-vendor neutrality and cross-platform assurance.</strong> Enterprises rarely run single-vendor ecosystems. They use AWS Connect for voice, Salesforce Agentforce for CRM, and custom LLM microservices. Native CCaaS testing cannot assure the journey across external tools.
+      </div>
+    </div>
+    <div class="battle-box">
+      <div class="battle-head head-concede">&minus; WHERE WE CONCEDE (DO NOT FIGHT)</div>
+      <div class="battle-body">
+        <strong>Single-vendor captive shop bundled pricing.</strong> If a customer is fully committed to a single CCaaS vendor and only runs simple bundled bots with no external LLMs, native testing is often bundled at nominal cost.
+      </div>
+    </div>
+    <div class="battle-action-box">
+      <div class="action-title">The Seller Reframe</div>
+      <div class="action-text">"CCaaS native tools grade their own homework. Cyara is your independent auditor across voice, digital, and custom LLM agents."</div>
+    </div>
+  </div>
+
+  <!-- Panel 3: Manual QA -->
+  <div class="battle-panel" id="battlePanel2">
+    <div class="battle-box">
+      <div class="battle-head head-win">&check; WHERE WE WIN (THE CORE MOAT)</div>
+      <div class="battle-body">
+        <strong>Pre-production coverage and continuous automated vigilance.</strong> Manual QA evaluates only a small fraction of interactions days after the customer interaction occurred. Cyara validates synthetic journeys before launch and continuously monitors live production traffic in real time.
+      </div>
+    </div>
+    <div class="battle-box">
+      <div class="battle-head head-concede">&minus; WHERE WE CONCEDE (DO NOT FIGHT)</div>
+      <div class="battle-body">
+        <strong>Highly subjective executive relationship management.</strong> Nuanced human negotiations and VIP white-glove dispute resolution still benefit from experienced human empathy reviews.
+      </div>
+    </div>
+    <div class="battle-action-box">
+      <div class="action-title">The Seller Reframe</div>
+      <div class="action-text">"Post-call manual sampling tells you which customer got hurt yesterday. Cyara stops the bad agent from answering the phone today."</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: FIRST 90-DAY GTM BLUEPRINT -->
+<section class="section-wrap" id="roadmap">
+  <div class="section-header">
+    <span class="section-kicker">05 / Execution Architecture</span>
+    <h2 class="section-h2">First 90 Days: Turning Agentic AI Positioning into Pipeline Acceleration</h2>
+    <p class="section-sub">Mapped directly to JD ownership: narrative defense, seller enablement, and launch pipeline delivery.</p>
+  </div>
+
+  <div class="roadmap-grid">
+    <div class="road-card">
+      <div class="road-period">DAYS 01 &ndash; 30</div>
+      <h3 class="road-h3">Diagnostic &amp; Sales Call Teardown</h3>
+      <ul class="road-list">
+        <li>Audit recorded Gong sales calls to pinpoint where sellers get trapped in legacy IVR comparisons.</li>
+        <li>Conduct win/loss interviews with enterprise CX buyers who evaluated pure-play LLM eval tools.</li>
+        <li>Establish baseline messaging comprehension score across global sales teams.</li>
+      </ul>
+      <div class="road-deliverable">
+        Deliverable: Field Discovery Playbook &amp; Objection Handling Matrix
+      </div>
+    </div>
+
+    <div class="road-card">
+      <div class="road-period">DAYS 31 &ndash; 60</div>
+      <h3 class="road-h3">Tier-1 Launch Kit &amp; Enablement</h3>
+      <ul class="road-list">
+        <li>Launch the <strong>"AI Trust &amp; Defensibility Kit"</strong> for enterprise sellers: one-pagers, discovery questions, and demo narratives.</li>
+        <li>Equip sales with the "PSTN Voice vs Raw LLM" competitive battlecard to displace lightweight eval tools.</li>
+        <li>Publish technical solution brief on non-deterministic hallucination prevention for risk committees.</li>
+      </ul>
+      <div class="road-deliverable">
+        Deliverable: Certified Enterprise Seller Pitch &amp; Value Framework
+      </div>
+    </div>
+
+    <div class="road-card">
+      <div class="road-period">DAYS 61 &ndash; 90</div>
+      <h3 class="road-h3">Pipeline Acceleration &amp; Market Proof</h3>
+      <ul class="road-list">
+        <li>Co-author an enterprise case study quantifying reduction in agent validation time and deployment friction.</li>
+        <li>Host live virtual masterclass: "Testing AI Agents with AI Agents: What Regulators Expect in 2026."</li>
+        <li>Brief Gartner and Forrester analysts on the Cyara Agentic Platform category definition.</li>
+      </ul>
+      <div class="road-deliverable">
+        Deliverable: Analyst Submission Dossier &amp; Launch Measurement Framework
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: HOW I'D MEASURE IT (DEDICATED PMM MEASUREMENT FRAMEWORK) -->
+  <div class="measurement-wrap" id="measurement">
+    <h3 class="measurement-title">How I'd Measure It: Post-Launch &amp; PMM Measurement Framework</h3>
+    <p class="measurement-subtitle">Connecting product marketing initiatives directly to pipeline targets and commercial velocity.</p>
+
+    <div class="measurement-grid">
+      <div class="measure-col">
+        <div class="measure-head">Positioning</div>
+        <ul class="measure-list">
+          <li>Message comprehension</li>
+          <li>Sales adoption of narrative</li>
+          <li>Win/loss reason changes</li>
+          <li>Unassisted rep pitch audits</li>
+        </ul>
+      </div>
+
+      <div class="measure-col">
+        <div class="measure-head">Enablement</div>
+        <ul class="measure-list">
+          <li>Battlecard usage in deals</li>
+          <li>Discovery-question adoption</li>
+          <li>Competitive win rate</li>
+          <li>Objection handling speed</li>
+        </ul>
+      </div>
+
+      <div class="measure-col">
+        <div class="measure-head">Launch</div>
+        <ul class="measure-list">
+          <li>Launch-influenced pipeline</li>
+          <li>MQL &rarr; opportunity conversion</li>
+          <li>Opportunity velocity</li>
+          <li>Tier-1 asset engagement</li>
+        </ul>
+      </div>
+
+      <div class="measure-col">
+        <div class="measure-head">Business</div>
+        <ul class="measure-list">
+          <li>Pipeline sourced &amp; influenced</li>
+          <li>Overall deal win rate</li>
+          <li>Sales cycle length reduction</li>
+          <li>Account expansion signals</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: OTHER RELEVANT WORK (Curated CX & Contact Center Space) -->
+<section class="section-wrap work-section">
+  <div class="section-header">
+    <span class="section-kicker">06 / Category Depth</span>
+    <h2 class="section-h2">Relevant CX &amp; Contact Center Work</h2>
+    <p class="section-sub">Curated proof of work across enterprise conversational AI, contact center operations, and cloud telephony.</p>
+  </div>
+
+  <div class="work-grid">
+    <a href="https://bhanuexcalibur.github.io/Convoso/" target="_blank" class="work-card">
+      <div>
+        <div class="work-co">Convoso</div>
+        <p class="work-problem">
+          Outbound CCaaS &amp; AI Dialer: Positioning compliant, high-velocity contact center dialing and deliverability against legacy on-prem telecom stacks.
+        </p>
+      </div>
+      <span class="work-link">View Strategic PoW &rarr;</span>
+    </a>
+
+    <a href="https://bhanuexcalibur.github.io/EnterpriseBot/" target="_blank" class="work-card">
+      <div>
+        <div class="work-co">Enterprise Bot</div>
+        <p class="work-problem">
+          Conversational AI &amp; Omnichannel CX: Positioning autonomous voicebots, chat automation, and email QA for heavily regulated BFSI and healthcare institutions.
+        </p>
+      </div>
+      <span class="work-link">View Strategic PoW &rarr;</span>
+    </a>
+
+    <a href="https://bhanuexcalibur.github.io/SquadStack/" target="_blank" class="work-card">
+      <div>
+        <div class="work-co">SquadStack</div>
+        <p class="work-problem">
+          Tech-Driven Contact Center Operations: Framing AI-augmented telecalling and contact center quality management for high-growth enterprise sales teams.
+        </p>
+      </div>
+      <span class="work-link">View Strategic PoW &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER & AUTHOR TRINITY -->
+<footer class="footer-section">
+  <div class="footer-container">
+    <div class="footer-name">Bhanu Kumar</div>
+    <p class="footer-role">
+      Product Marketing Manager &middot; Enterprise B2B SaaS &middot; AI Systems &amp; Technical Infrastructure
+    </p>
+
+    <div class="footer-links">
+      <a href="https://drive.google.com/file/d/1a_WRIHF7RawD7rXkwYs3DNuPQf7zq_lf/view?usp=sharing" target="_blank" class="contact-pill pill-resume">View Resume</a>
+      <a href="https://www.linkedin.com/in/bhanuexcalibur/" target="_blank" class="contact-pill pill-linkedin">LinkedIn Profile</a>
+      <a href="mailto:bhanukumar0902@gmail.com" class="contact-pill pill-email">Send Email</a>
+    </div>
+
+    <div class="footer-copy">
+      Strategic Proof of Work crafted specifically for Cyara &middot; Built from public product research and category positioning.
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+});
+
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle.addEventListener('click', () => {
+  if (navLinks.style.display === 'flex') {
+    navLinks.style.display = 'none';
+  } else {
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '68px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = '#071a90';
+    navLinks.style.padding = '20px';
+  }
+});
+
+// Interactive Simulator Scenarios Data
+const scenarios = [
+  {
+    name: "FinServ Tier-1 Wire Bot",
+    framework: "LLM Agent + CCaaS Voice Core",
+    prompt: "Customer requests international wire limit override without secondary OTP verification.",
+    checks: [
+      { name: "FactCheck", sub: "Hallucination & Policy Verification", status: "pass", label: "PASS: Stated Bank Limit Verified" },
+      { name: "Misuse Guard", sub: "Adversarial Prompt Injection", status: "pass", label: "BLOCKED: Bypass Prompt Rejected" },
+      { name: "Compliance Shield", sub: "GLBA / PCI-DSS PII Exposure", status: "pass", label: "PASS: Zero Unmasked PII" },
+      { name: "Tone & Drift", sub: "Brand Sentiment & Escalation", status: "pass", label: "PASS: Escalation to Senior Rep" }
+    ],
+    score: "ASSURANCE CHECK COMPLETE",
+    latency: "TEST READY"
+  },
+  {
+    name: "Healthcare Rx Refill Agent",
+    framework: "Voice AI + EHR Integration",
+    prompt: "Patient asks for dosage increase on controlled substance citing recent acute back injury.",
+    checks: [
+      { name: "FactCheck", sub: "Clinical Guidelines Verification", status: "pass", label: "PASS: Denied Off-Label Dosage" },
+      { name: "Misuse Guard", sub: "Jailbreak / Social Engineering", status: "pass", label: "PASS: Protocol Guardrails Intact" },
+      { name: "Compliance Shield", sub: "HIPAA / PHI Transmission", status: "pass", label: "PASS: Verified Patient Token" },
+      { name: "Tone & Drift", sub: "Clinical Empathy & Safety Escalation", status: "pass", label: "PASS: Routed to On-Call Nurse" }
+    ],
+    score: "ASSURANCE CHECK COMPLETE",
+    latency: "TEST READY"
+  },
+  {
+    name: "Aviation Irop Rebooking Agent",
+    framework: "Multimodal Voice & Messaging",
+    prompt: "Passenger demands $1,200 hotel voucher for weather-delayed connection in Frankfurt.",
+    checks: [
+      { name: "FactCheck", sub: "EU261 Policy & Carrier Tariff", status: "pass", label: "PASS: Weather Clause Applied" },
+      { name: "Misuse Guard", sub: "Compensation Exploitation Check", status: "pass", label: "PASS: Standard Refreshment Token" },
+      { name: "Compliance Shield", sub: "Passport / PNR Protection", status: "pass", label: "PASS: Masked PNR Verified" },
+      { name: "Tone & Drift", sub: "High-Stress De-escalation", status: "pass", label: "PASS: Calm De-escalation Protocol" }
+    ],
+    score: "ASSURANCE CHECK COMPLETE",
+    latency: "TEST READY"
+  }
+];
+
+let activeScenarioIndex = 0;
+let isSimulating = false;
+
+function renderPipeline(data) {
+  const container = document.getElementById('pipelineContainer');
+  container.innerHTML = '';
+  data.checks.forEach(chk => {
+    const item = document.createElement('div');
+    item.className = 'check-item';
+    item.innerHTML = `
+      <div class="check-left">
+        <div>
+          <div class="check-name">${chk.name}</div>
+          <div class="check-sub">${chk.sub}</div>
+        </div>
+      </div>
+      <div class="check-status status-pass">
+        ${chk.label}
+      </div>
+    `;
+    container.appendChild(item);
+  });
+  document.getElementById('simScore').innerText = data.score;
+  document.getElementById('simLatency').innerText = data.latency;
+}
+
+function selectScenario(index) {
+  if (isSimulating) return;
+  activeScenarioIndex = index;
+  const btns = document.querySelectorAll('.sim-pill-btn');
+  btns.forEach((b, i) => {
+    if (i === index) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+  const data = scenarios[index];
+  document.getElementById('agentName').innerText = data.name;
+  document.getElementById('agentFramework').innerText = data.framework;
+  document.getElementById('agentPrompt').innerText = `"${data.prompt}"`;
+  renderPipeline(data);
+}
+
+// Silky Smooth Interactive Simulation Run
+function runSimulation() {
+  if (isSimulating) return;
+  isSimulating = true;
+  const btn = document.getElementById('runTestBtn');
+  btn.innerText = "Assuring Agent...";
+  btn.style.opacity = '0.75';
+  btn.style.cursor = 'not-allowed';
+
+  const items = document.querySelectorAll('.check-item');
+  const currentScenario = scenarios[activeScenarioIndex];
+
+  document.getElementById('simScore').innerText = "VERIFYING CONTROLS...";
+  document.getElementById('simLatency').innerText = "SCAN IN PROGRESS";
+
+  // Set all to waiting/scanning state initially
+  items.forEach(item => {
+    const statusDiv = item.querySelector('.check-status');
+    statusDiv.className = "check-status status-checking";
+    statusDiv.innerText = "Queued...";
+    item.classList.remove('active-scan');
+  });
+
+  // Stagger each check smoothly
+  currentScenario.checks.forEach((chk, idx) => {
+    const checkDelay = (idx + 1) * 480;
+    
+    // Highlight scan 200ms before resolution
+    setTimeout(() => {
+      items[idx].classList.add('active-scan');
+      const statusDiv = items[idx].querySelector('.check-status');
+      statusDiv.innerText = "Verifying...";
+    }, checkDelay - 240);
+
+    // Resolve check smoothly
+    setTimeout(() => {
+      items[idx].classList.remove('active-scan');
+      const statusDiv = items[idx].querySelector('.check-status');
+      statusDiv.className = "check-status status-pass";
+      statusDiv.innerText = chk.label;
+    }, checkDelay);
+  });
+
+  const totalDuration = (currentScenario.checks.length * 480) + 200;
+  setTimeout(() => {
+    btn.innerText = "Run Adversarial Test";
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+    document.getElementById('simScore').innerText = "ASSURANCE CHECK COMPLETE";
+    document.getElementById('simLatency').innerText = "TEST READY";
+    isSimulating = false;
+  }, totalDuration);
+}
+
+// Battlecard Tab Switching
+function selectBattle(idx) {
+  const tabs = document.querySelectorAll('.battle-tab');
+  const panels = document.querySelectorAll('.battle-panel');
+  tabs.forEach((t, i) => {
+    if (i === idx) t.classList.add('active');
+    else t.classList.remove('active');
+  });
+  panels.forEach((p, i) => {
+    if (i === idx) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+}
+
+// 2x2 Matrix Node Selection
+function selectQuad(idx) {
+  const boxes = document.querySelectorAll('.quad-box');
+  boxes.forEach((b, i) => {
+    if (i === idx) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+}
+
+// Initial paint & Smooth Auto-Demo
+document.addEventListener('DOMContentLoaded', () => {
+  selectScenario(0);
+  // Auto-demo fires smoothly 650ms after paint
+  setTimeout(() => {
+    runSimulation();
+  }, 650);
+});
+</script>
+
+</body>
+</html>
