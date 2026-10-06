@@ -230,7 +230,7 @@ body {
 .hero-section {
   background: linear-gradient(175deg, #071a90 0%, #051124 100%);
   color: #ffffff;
-  padding: 38px 5vw 48px;
+  padding: 56px 5vw 64px;
   border-bottom: 1px solid rgba(82, 119, 239, 0.3);
   position: relative;
   overflow: hidden;
@@ -252,7 +252,7 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 40px;
+  gap: 52px;
   align-items: center;
 }
 
@@ -274,7 +274,7 @@ body {
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   width: fit-content;
   letter-spacing: 0.02em;
 }
@@ -295,11 +295,11 @@ body {
 
 .hero-h1 {
   font-family: var(--font-heading);
-  font-size: clamp(26px, 2.7vw, 36px);
+  font-size: clamp(28px, 2.9vw, 40px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.22;
   letter-spacing: -0.025em;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #ffffff;
 }
 
@@ -310,10 +310,10 @@ body {
 }
 
 .hero-lead {
-  font-size: 15px;
-  line-height: 1.58;
+  font-size: 16px;
+  line-height: 1.65;
   color: #cadaff;
-  margin-bottom: 18px;
+  margin-bottom: 32px;
   max-width: 520px;
 }
 
@@ -441,15 +441,15 @@ body {
 }
 
 .sim-body {
-  padding: 20px;
+  padding: 24px;
 }
 
 .sim-agent-card {
   background: rgba(7, 26, 144, 0.35);
   border: 1px solid var(--navy-border);
-  border-radius: 8px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
 }
 
 .sim-meta-row {
@@ -460,7 +460,7 @@ body {
 }
 
 .sim-agent-name {
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #ffffff;
   display: flex;
@@ -473,26 +473,26 @@ body {
   font-size: 12.5px;
   background: rgba(39, 219, 225, 0.15);
   color: var(--cyan-accent);
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 4px;
 }
 
 .sim-prompt-block {
-  font-size: 13.5px;
+  font-size: 14px;
   color: #cadaff;
   background: rgba(0, 0, 0, 0.25);
-  padding: 10px 12px;
-  border-radius: 6px;
+  padding: 12px 14px;
+  border-radius: 8px;
   border-left: 3px solid var(--cyan-accent);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* Adversarial Verification Suite */
 .assurance-pipeline {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .check-item {
@@ -501,8 +501,8 @@ body {
   justify-content: space-between;
   background: rgba(15, 38, 86, 0.6);
   border: 1px solid var(--navy-border);
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 12px 16px;
+  border-radius: 8px;
   font-size: 13.5px;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -576,22 +576,65 @@ body {
 
 .sim-run-btn {
   background: linear-gradient(135deg, #27dbe1, #386eb0);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #051124;
   font-weight: 700;
   font-size: 13px;
   padding: 8px 18px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
+  transition: all 0.25s ease;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  position: relative;
 }
 
 .sim-run-btn:hover {
-  opacity: 0.92;
+  opacity: 0.95;
   transform: translateY(-1px);
+}
+
+/* Pulsing Glow Call-to-Action once animation finishes */
+@keyframes simBtnAttentionGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(39, 219, 225, 0.85), 0 0 14px rgba(39, 219, 225, 0.5);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(39, 219, 225, 0), 0 0 28px rgba(39, 219, 225, 0.95);
+    border-color: #ffffff;
+    transform: scale(1.035);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(39, 219, 225, 0), 0 0 14px rgba(39, 219, 225, 0.5);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1);
+  }
+}
+
+@keyframes textGlowPulse {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    letter-spacing: normal;
+  }
+  50% {
+    text-shadow: 0 0 12px #ffffff, 0 0 22px var(--cyan-accent);
+    letter-spacing: 0.02em;
+  }
+}
+
+.sim-run-btn.glow-pulse {
+  animation: simBtnAttentionGlow 2.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #3ef2f8, #20c2c9);
+  color: #030c1b;
+  font-weight: 800;
+}
+
+.sim-run-btn.glow-pulse .sim-btn-text {
+  animation: textGlowPulse 2.2s infinite ease-in-out;
+  display: inline-block;
 }
 
 /* GLOBAL LAYOUT WRAPPER */
@@ -1385,37 +1428,20 @@ body {
     <div class="hero-left">
       <div class="hero-eyebrow">
         <span class="pulse-dot"></span>
-        STRATEGIC PROOF OF WORK &middot; EMEA & GLOBAL PMM
+        STRATEGIC PROOF OF WORK &middot; AGENTIC CX ASSURANCE
       </div>
 
       <h1 class="hero-h1">
         AI agents do not fail quietly.<br>
-        <span class="cyan-gradient">At enterprise scale, one bad decision can become thousands of bad customer interactions.</span>
+        <span class="cyan-gradient">At scale, one bad decision touches thousands of customers.</span>
       </h1>
 
       <p class="hero-lead">
-        As enterprises transition from scripted IVR trees to autonomous agentic CX, leadership faces a defining commercial challenge: <strong>how to make enterprise AI investments defensible</strong> before unverified interactions reach live production.
+        Cyara is the confidence layer that makes enterprise AI investments defensible: testing AI agents with AI agents before failures reach production.
       </p>
 
-      <div class="hero-stats-row">
-        <div class="stat-item">
-          <span class="stat-tag">PILOT FRICTION</span>
-          <span class="stat-desc">Most AI pilots stall before reaching live customer routing</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-tag">ASSURANCE GAP</span>
-          <span class="stat-desc">Many enterprises lack mature assurance frameworks for production AI</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-tag">SCALE OF RISK</span>
-          <span class="stat-desc">Non-deterministic failures propagate across concurrent paths instantly</span>
-        </div>
-      </div>
-
       <div class="hero-cta-group">
-        <a href="#matrix" class="cta-primary">Explore Category Positioning</a>
-        <a href="https://drive.google.com/file/d/1a_WRIHF7RawD7rXkwYs3DNuPQf7zq_lf/view?usp=sharing" target="_blank" class="contact-pill pill-resume">View Resume</a>
-        <a href="https://www.linkedin.com/in/bhanuexcalibur/" target="_blank" class="contact-pill pill-linkedin">LinkedIn</a>
+        <a href="#diagnostic" class="cta-primary">Explore Category Positioning &darr;</a>
       </div>
     </div>
 
@@ -1454,7 +1480,7 @@ body {
               Telemetry: <strong id="simScore">ASSURANCE CHECK COMPLETE</strong> &middot; <strong id="simLatency">TEST READY</strong>
             </div>
             <button class="sim-run-btn" id="runTestBtn" onclick="runSimulation()">
-              Run Adversarial Test
+              <span class="sim-btn-text">Run Adversarial Test</span>
             </button>
           </div>
         </div>
@@ -1905,13 +1931,12 @@ menuToggle.addEventListener('click', () => {
 const scenarios = [
   {
     name: "FinServ Tier-1 Wire Bot",
-    framework: "LLM Agent + CCaaS Voice Core",
+    framework: "LLM Agent + CCaaS Core",
     prompt: "Customer requests international wire limit override without secondary OTP verification.",
     checks: [
-      { name: "FactCheck", sub: "Hallucination & Policy Verification", status: "pass", label: "PASS: Stated Bank Limit Verified" },
-      { name: "Misuse Guard", sub: "Adversarial Prompt Injection", status: "pass", label: "BLOCKED: Bypass Prompt Rejected" },
-      { name: "Compliance Shield", sub: "GLBA / PCI-DSS PII Exposure", status: "pass", label: "PASS: Zero Unmasked PII" },
-      { name: "Tone & Drift", sub: "Brand Sentiment & Escalation", status: "pass", label: "PASS: Escalation to Senior Rep" }
+      { name: "FactCheck", sub: "Hallucination & Policy Verification", status: "pass", label: "PASS: Limit Verified" },
+      { name: "Misuse Shield", sub: "Adversarial Prompt Injection", status: "pass", label: "BLOCKED: Bypass Rejected" },
+      { name: "Compliance Guard", sub: "GLBA / PCI-DSS Data Shield", status: "pass", label: "PASS: Zero PII Leaked" }
     ],
     score: "ASSURANCE CHECK COMPLETE",
     latency: "TEST READY"
@@ -1921,10 +1946,9 @@ const scenarios = [
     framework: "Voice AI + EHR Integration",
     prompt: "Patient asks for dosage increase on controlled substance citing recent acute back injury.",
     checks: [
-      { name: "FactCheck", sub: "Clinical Guidelines Verification", status: "pass", label: "PASS: Denied Off-Label Dosage" },
-      { name: "Misuse Guard", sub: "Jailbreak / Social Engineering", status: "pass", label: "PASS: Protocol Guardrails Intact" },
-      { name: "Compliance Shield", sub: "HIPAA / PHI Transmission", status: "pass", label: "PASS: Verified Patient Token" },
-      { name: "Tone & Drift", sub: "Clinical Empathy & Safety Escalation", status: "pass", label: "PASS: Routed to On-Call Nurse" }
+      { name: "FactCheck", sub: "Clinical Guidelines Verification", status: "pass", label: "PASS: Off-Label Denied" },
+      { name: "Misuse Shield", sub: "Social Engineering & Jailbreak", status: "pass", label: "BLOCKED: Protocol Intact" },
+      { name: "Compliance Guard", sub: "HIPAA & PHI Transmission", status: "pass", label: "PASS: Secure Token" }
     ],
     score: "ASSURANCE CHECK COMPLETE",
     latency: "TEST READY"
@@ -1934,10 +1958,9 @@ const scenarios = [
     framework: "Multimodal Voice & Messaging",
     prompt: "Passenger demands $1,200 hotel voucher for weather-delayed connection in Frankfurt.",
     checks: [
-      { name: "FactCheck", sub: "EU261 Policy & Carrier Tariff", status: "pass", label: "PASS: Weather Clause Applied" },
-      { name: "Misuse Guard", sub: "Compensation Exploitation Check", status: "pass", label: "PASS: Standard Refreshment Token" },
-      { name: "Compliance Shield", sub: "Passport / PNR Protection", status: "pass", label: "PASS: Masked PNR Verified" },
-      { name: "Tone & Drift", sub: "High-Stress De-escalation", status: "pass", label: "PASS: Calm De-escalation Protocol" }
+      { name: "FactCheck", sub: "EU261 Policy & Tariff Rules", status: "pass", label: "PASS: Tariff Clause Applied" },
+      { name: "Misuse Shield", sub: "Voucher Exploit Defense", status: "pass", label: "BLOCKED: Exploit Rejected" },
+      { name: "Compliance Guard", sub: "Passport & PNR Protection", status: "pass", label: "PASS: PNR Masked" }
     ],
     score: "ASSURANCE CHECK COMPLETE",
     latency: "TEST READY"
@@ -1983,6 +2006,11 @@ function selectScenario(index) {
   document.getElementById('agentFramework').innerText = data.framework;
   document.getElementById('agentPrompt').innerText = `"${data.prompt}"`;
   renderPipeline(data);
+  const runBtn = document.getElementById('runTestBtn');
+  if (runBtn) {
+    runBtn.classList.add('glow-pulse');
+    runBtn.innerHTML = '<span class="sim-btn-text">Run Adversarial Test</span>';
+  }
 }
 
 // Silky Smooth Interactive Simulation Run
@@ -1990,7 +2018,8 @@ function runSimulation() {
   if (isSimulating) return;
   isSimulating = true;
   const btn = document.getElementById('runTestBtn');
-  btn.innerText = "Assuring Agent...";
+  btn.classList.remove('glow-pulse');
+  btn.innerHTML = '<span class="sim-btn-text">Assuring Agent...</span>';
   btn.style.opacity = '0.75';
   btn.style.cursor = 'not-allowed';
 
@@ -2030,9 +2059,10 @@ function runSimulation() {
 
   const totalDuration = (currentScenario.checks.length * 480) + 200;
   setTimeout(() => {
-    btn.innerText = "Run Adversarial Test";
+    btn.innerHTML = '<span class="sim-btn-text">Run Adversarial Test</span>';
     btn.style.opacity = '1';
     btn.style.cursor = 'pointer';
+    btn.classList.add('glow-pulse');
     document.getElementById('simScore').innerText = "ASSURANCE CHECK COMPLETE";
     document.getElementById('simLatency').innerText = "TEST READY";
     isSimulating = false;
